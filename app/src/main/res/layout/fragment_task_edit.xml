@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".ui.home.TaskEditFragment">
+
+
+
+    <RadioGroup
+        android:id="@+id/rb_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <RadioButton
+            android:id="@+id/rb_in_urgent_task"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="All"
+            android:tag="All" />
+
+        <RadioButton
+            android:id="@+id/rb_long_task"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CategoryA"/>
+        <RadioButton
+            android:id="@+id/rb_completed_task"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CategoryB"/>
+
+    </RadioGroup>
+
+    <EditText
+        android:inputType="textMultiLine"
+        android:id="@+id/task_add_des"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:importantForAutofill="no" />
+
+    <Button
+        android:layout_gravity="center"
+        android:id="@+id/save_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="save"/>
+
+</LinearLayout>
