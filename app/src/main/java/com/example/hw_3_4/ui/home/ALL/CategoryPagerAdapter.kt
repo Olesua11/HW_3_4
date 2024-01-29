@@ -5,9 +5,9 @@ import androidx.fragment.app.Fragment
 
 import androidx.fragment.app.FragmentManager
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.example.hw_3_4.ui.home.ALL.AllTasksFragment
 import com.example.hw_3_4.ui.home.ALL.CategoryAFragment
 import com.example.hw_3_4.ui.home.ALL.CategoryBFragment
+import com.example.hw_3_4.ui.notifications.AllTasksFragment
 
 class CategoryPagerAdapter (
     fragmentManager: FragmentManager,

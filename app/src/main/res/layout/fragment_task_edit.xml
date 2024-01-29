@@ -34,8 +34,14 @@
     </RadioGroup>
 
     <EditText
+        android:id="@+id/et_title"
+        android:hint="Title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <EditText
         android:inputType="textMultiLine"
-        android:id="@+id/task_add_des"
+        android:id="@+id/et_desc"
         android:layout_gravity="center"
         android:gravity="center"
         android:layout_width="match_parent"

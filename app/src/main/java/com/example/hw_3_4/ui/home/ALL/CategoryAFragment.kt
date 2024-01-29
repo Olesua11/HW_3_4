@@ -1,32 +1,31 @@
 package com.example.hw_3_4.ui.home.ALL
 
 
-
-
+import Task
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.hw_3_4.R
+import com.example.hw_3_4.App
 import com.example.hw_3_4.databinding.FragmentCategoryABinding
-import com.example.hw_3_4.ui.home.HomeFragmentDirections
+import com.example.hw_3_4.ui.notifications.AllTasksFragment
 import com.example.hw_3_4.ui.notifications.ListAdapter
-import com.example.hw_3_4.ui.notifications.ListTasks
 
 class CategoryAFragment : Fragment() {
 
     private var _binding: FragmentCategoryABinding? = null
     private val binding get() = _binding!!
-
-    private val tasksA = ArrayList<ListTasks>()
+    private lateinit var adapter: ListAdapter
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
+        inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
+    ): View? {
         _binding = FragmentCategoryABinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -34,34 +33,22 @@ class CategoryAFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val adapter = ListAdapter(tasksA) { position ->
-            navigateToTaskEditFragment("", position, false)
-        }
-
+        adapter = ListAdapter(this::onItemClick)
         binding.taskList.adapter = adapter
         binding.taskList.layoutManager = LinearLayoutManager(requireContext())
+        val list = App.db.taskDao().getAllTasks()
+        adapter.setTasks(list)
 
         binding.addButton.setOnClickListener {
-            navigateToTaskEditFragment("", tasksA.size, true)
+            findNavController().navigate(R.id.action_navigation_home_to_taskEditFragment)
         }
-
-        tasksA.add(ListTasks("Написать курсавую", position = tasksA.size))
-        tasksA.add(ListTasks("сходить в колледж", position = tasksA.size))
-        tasksA.add(ListTasks("уволиться", position = tasksA.size))
-        tasksA.add(ListTasks("купить крысу", position = tasksA.size))
-        tasksA.add(ListTasks("убраться в комнате", position = tasksA.size))
-
-        adapter.notifyDataSetChanged()
     }
 
-    private fun navigateToTaskEditFragment(taskDescription: String, position: Int, addTask: Boolean) {
-        val action = HomeFragmentDirections.actionNavigationHomeToTaskEditFragment(
-            argtext = taskDescription,
-            position = position,
-            addtask = addTask
-        )
-        findNavController().navigate(action)
+    private fun onItemClick(task: Task) {
+        val bundle = bundleOf(AllTasksFragment.KEY_TASK_EDIT to task)
+        findNavController().navigate(R.id.taskEditFragment, bundle)
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()

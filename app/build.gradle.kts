@@ -3,6 +3,9 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("androidx.navigation.safeargs.kotlin")
     id("kotlin-kapt")
+    id("com.google.devtools.ksp")
+
+
 }
 
 android {
@@ -64,6 +67,13 @@ android {
         implementation ("androidx.fragment:fragment-ktx:1.3.0")
         implementation ("me.relex:circleindicator:2.1.6 ")
         implementation ("me.relex:circleindicator:2.1.6")
+        val room_version = "2.6.1"
+        implementation ("androidx.room:room-ktx:2.6.1")
+
+        implementation("androidx.room:room-runtime:$room_version")
+        ksp("androidx.room:room-compiler:$room_version")
+
+        implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2")
 
 
 
