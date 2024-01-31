@@ -1,7 +1,6 @@
 package com.example.hw_3_4.ui.home.ALL
 
 
-import Task
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.hw_3_4.R
 import com.example.hw_3_4.App
 import com.example.hw_3_4.databinding.FragmentCategoryABinding
+import com.example.hw_3_4.models.Task
 import com.example.hw_3_4.ui.notifications.AllTasksFragment
 import com.example.hw_3_4.ui.notifications.ListAdapter
 

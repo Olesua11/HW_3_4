@@ -1,12 +1,12 @@
 package com.example.hw_3_4.ui.notifications
 
-import Task
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hw_3_4.databinding.ItemListBinding
+import com.example.hw_3_4.models.Task
 import com.example.hw_3_4.ui.home.HomeFragmentDirections
 
 class ListAdapter(

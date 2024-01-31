@@ -1,4 +1,8 @@
+
+package com.example.hw_3_4.ui.home
+
 import android.os.Bundle
+
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup

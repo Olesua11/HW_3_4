@@ -1,18 +1,14 @@
 package com.example.hw_3_4
 
-import TaskDatabase
 import android.app.Application
 import androidx.room.Room
+import com.example.hw_3_4.dataa.TaskDatabase
 
 class App: Application() {
-    private lateinit var db: TaskDatabase
 
     override fun onCreate() {
         super.onCreate()
-        db = Room.databaseBuilder(
-            applicationContext,
-            TaskDatabase::class.java, "database-name"
-        ).allowMainThreadQueries().build()
+        db = TaskDatabase.getDatabase(this)
     }
     companion object{
         lateinit var db:TaskDatabase

@@ -1,3 +1,8 @@
+
+
+package com.example.hw_3_4.models
+
+
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
