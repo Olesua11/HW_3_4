@@ -6,6 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.hw_3_4.models.Task
 
+
 @Database(entities = [Task::class], version = 1)
 abstract class TaskDatabase : RoomDatabase() {
     abstract fun taskDao(): TaskDao
@@ -14,13 +15,19 @@ abstract class TaskDatabase : RoomDatabase() {
         @Volatile
         private var INSTANCE: TaskDatabase? = null
 
-        fun getDatabase(context: Context): TaskDatabase {
+        fun getDatabase(context: Context, allowMainThreadQueries: Boolean): TaskDatabase {
             return INSTANCE ?: synchronized(this) {
-                val instance = Room.databaseBuilder(
+                val builder = Room.databaseBuilder(
                     context.applicationContext,
                     TaskDatabase::class.java,
                     "task_database"
-                ).fallbackToDestructiveMigration().build()
+                ).fallbackToDestructiveMigration()
+
+                if (allowMainThreadQueries) {
+                    builder.allowMainThreadQueries()
+                }
+
+                val instance = builder.build()
 
                 INSTANCE = instance
                 instance

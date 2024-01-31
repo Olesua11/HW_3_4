@@ -8,10 +8,10 @@ class App: Application() {
 
     override fun onCreate() {
         super.onCreate()
-        db = TaskDatabase.getDatabase(this)
+        db = TaskDatabase.getDatabase(this, allowMainThreadQueries = true)
     }
-    companion object{
-        lateinit var db:TaskDatabase
+
+    companion object {
+        lateinit var db: TaskDatabase
     }
 }
-
