@@ -2,6 +2,7 @@ package com.example.hw_3_4.ui.home.ALL
 
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -36,9 +37,10 @@ class CategoryAFragment : Fragment() {
         adapter = ListAdapter(this::onItemClick)
         binding.taskList.adapter = adapter
         binding.taskList.layoutManager = LinearLayoutManager(requireContext())
-        val list = App.db.taskDao().getAllTasks()
-        adapter.setTasks(list)
+        val list = App.db.taskDao().getTasksByStatus("CategoryA")
+        Log.e("ololo", "CategoryA: $list", )
 
+        adapter.setTasks(list)
         binding.addButton.setOnClickListener {
             findNavController().navigate(R.id.action_navigation_home_to_taskEditFragment)
         }

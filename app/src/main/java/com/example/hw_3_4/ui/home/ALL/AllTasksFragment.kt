@@ -1,6 +1,7 @@
 package com.example.hw_3_4.ui.notifications
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -37,6 +38,8 @@ class AllTasksFragment : Fragment() {
         binding.taskList.layoutManager = LinearLayoutManager(requireContext())
 
         val list = App.db.taskDao().getAllTasks()
+        Log.e("ololo", "all task: $list", )
+
         adapter.setTasks(list)
 
         binding.addButton.setOnClickListener {

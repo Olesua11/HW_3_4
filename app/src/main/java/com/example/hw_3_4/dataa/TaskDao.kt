@@ -12,11 +12,9 @@ import com.example.hw_3_4.models.Task
 interface TaskDao {
     @Query("SELECT * FROM task")
     fun getAllTasks(): List<Task>
-/*
-    @Query("SELECT * FROM task WHERE status = ")
-    fun getDoneTasks(): List<Task>
-*/
 
+    @Query("SELECT * FROM task WHERE status = :status")
+    fun getTasksByStatus(status: String): List<Task>
     @Insert
     fun insertTask(task: Task)
 

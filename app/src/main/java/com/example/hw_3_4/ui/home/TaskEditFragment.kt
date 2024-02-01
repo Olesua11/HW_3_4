@@ -2,6 +2,7 @@ package com.example.hw_3_4.ui.home
 
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -36,13 +37,13 @@ class TaskEditFragment : Fragment() {
         binding.etTitle.setText(task?.title)
         binding.etDesc.setText(task?.description)
 
-        val radioButtonId = binding.rbGroup.checkedRadioButtonId
-        val selectedRadioButton = view.findViewById<AppCompatRadioButton>(radioButtonId)
-        val selectedRadioButtonText = selectedRadioButton?.text.toString()
-
 
 
         binding.saveButton.setOnClickListener {
+            val radioButtonId = binding.rbGroup.checkedRadioButtonId
+            val selectedRadioButton = view.findViewById<AppCompatRadioButton>(radioButtonId)
+            val selectedRadioButtonText = selectedRadioButton?.text.toString()
+
             if (task ==null) {
                 val task = Task(
                     title = binding.etTitle.text.toString(),

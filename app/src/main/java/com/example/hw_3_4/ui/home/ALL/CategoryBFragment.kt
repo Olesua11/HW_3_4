@@ -1,6 +1,7 @@
 package com.example.hw_3_4.ui.home.ALL
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -38,7 +39,8 @@ class CategoryBFragment : Fragment() {
         binding.taskList.adapter = adapter
         binding.taskList.layoutManager = LinearLayoutManager(requireContext())
 
-        val list = App.db.taskDao().getAllTasks()
+        val list = App.db.taskDao().getTasksByStatus("CategoryB")
+        Log.e("ololo", "CategoryB: $list", )
         adapter.setTasks(list)
 
         binding.addButton.setOnClickListener {
