@@ -74,6 +74,15 @@ android {
         ksp("androidx.room:room-compiler:$room_version")
 
         implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2")
+        implementation ("com.google.code.gson:gson:2.8.9")
+
+        implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2")
+        implementation  (platform ("com.google.firebase:firebase-bom:32.7.1"))
+        implementation  ("com.google.firebase:firebase-auth")
+
+        implementation ("com.google.android.gms:play-services-auth:20.7.0")
+        implementation ("studio.clapp:wheelpicker:1.0.1")
+
 
 
 

@@ -5,37 +5,9 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    tools:context=".ui.home.TaskEditFragment">
+    tools:context=".ui.home.fragments.TaskEditFragment">
 
-    <RadioGroup
-        android:id="@+id/rb_group"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-        <RadioButton
-            android:id="@+id/rb_in_urgent_task"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="All"
-            android:tag="All" />
 
-        <RadioButton
-            android:id="@+id/rb_long_task"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="CategoryA"/>
-        <RadioButton
-            android:id="@+id/rb_completed_task"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="CategoryB"/>
-
-    </RadioGroup>
-
-    <EditText
-        android:id="@+id/et_title"
-        android:hint="Title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
 
     <EditText
         android:inputType="textMultiLine"

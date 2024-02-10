@@ -39,7 +39,7 @@
         tools:layout="@layout/fragment_notifications" />
     <fragment
         android:id="@+id/taskEditFragment"
-        android:name="com.example.hw_3_4.ui.home.TaskEditFragment"
+        android:name="com.example.hw_3_4.ui.home.fragments.TaskEditFragment"
         android:label="fragment_task_edit"
         tools:layout="@layout/fragment_task_edit" >
         <argument android:name="argtext"
@@ -60,5 +60,15 @@
         android:id="@+id/onBoardingFragment"
         android:name="com.example.hw_3_4.ui.notifications.OnBoardingFragment"
         android:label="OnBoardingFragment" />
+    <fragment
+        android:id="@+id/addProjectFragment"
+        android:name="com.example.hw_3_4.ui.home.fragments.AddProjectFragment"
+        android:label="fragment_add_project"
+        tools:layout="@layout/fragment_add_project" />
+    <fragment
+        android:id="@+id/taskFragment"
+        android:name="com.example.hw_3_4.ui.home.fragments.TaskFragment"
+        android:label="fragment_task"
+        tools:layout="@layout/fragment_task" />
 
 </navigation>

@@ -10,7 +10,7 @@ import com.example.hw_3_4.models.Task
 import com.example.hw_3_4.ui.home.HomeFragmentDirections
 
 class ListAdapter(
-    private val onItemClick: (task: Task) -> Unit
+    private val onCheckBoxClick: (task:Task) -> Unit
 ) : RecyclerView.Adapter<ListViewHolder>() {
 
     private var tasks = emptyList<Task>()
@@ -26,7 +26,7 @@ class ListAdapter(
             parent,
             false
         )
-        return ListViewHolder(binding, onItemClick)
+        return ListViewHolder(binding, onCheckBoxClick)
     }
 
     override fun getItemCount(): Int {
@@ -36,9 +36,9 @@ class ListAdapter(
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
         holder.onBind(tasks[position])
 
-        holder.itemView.setOnClickListener { view ->
+        /*holder.itemView.setOnClickListener { view ->
             navigateToTaskEditFragment(view, tasks[position].title, position, false)
-        }
+        }*/
     }
 
     private fun navigateToTaskEditFragment(
@@ -58,15 +58,15 @@ class ListAdapter(
 
 class ListViewHolder(
     private val binding: ItemListBinding,
-    private val onItemClick: (task: Task) -> Unit
+    private val onCheckBoxClick: ( task:Task) -> Unit
 ) : RecyclerView.ViewHolder(binding.root) {
     fun onBind(task: Task) {
-        itemView.setOnClickListener {
-            onItemClick(task)
-        }
         with(binding) {
+            cbDone.isChecked = task.checkBox
             tvDesc.text = task.description
-            tvTitle.text = task.title
+            cbDone.setOnClickListener {
+                onCheckBoxClick(task)
+            }
         }
     }
 }
