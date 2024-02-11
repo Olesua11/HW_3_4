@@ -29,7 +29,7 @@
     <fragment
         android:id="@+id/navigation_dashboard"
         android:name="com.example.hw_3_4.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
+        android:label="title_dashboard"
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
@@ -70,5 +70,10 @@
         android:name="com.example.hw_3_4.ui.home.fragments.TaskFragment"
         android:label="fragment_task"
         tools:layout="@layout/fragment_task" />
+    <fragment
+        android:id="@+id/authFragment"
+        android:name="com.example.hw_3_4.ui.AuthFragment"
+        android:label="fragment_auth"
+        tools:layout="@layout/fragment_auth" />
 
 </navigation>

@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.home.fragments.AllProjectsFragment">
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_projects"
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:itemCount="8"
-        tools:listitem="@layout/item_progect" />
+        tools:context=".ui.home.fragments.AllProjectsFragment">
 
-</FrameLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_projects"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:itemCount="8"
+            tools:listitem="@layout/item_progect" />
+
+    </FrameLayout>
